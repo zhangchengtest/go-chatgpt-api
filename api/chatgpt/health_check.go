@@ -28,31 +28,31 @@ var firstTime = true
 
 //goland:noinspection GoUnhandledErrorResult
 func init() {
-	proxyUrl := os.Getenv("GO_CHATGPT_API_PROXY")
-	if proxyUrl != "" {
-		logger.Info("GO_CHATGPT_API_PROXY: " + proxyUrl)
-		api.Client.SetProxy(proxyUrl)
-
-		for {
-			resp, err := healthCheck()
-			if err != nil {
-				// wait for proxy to be ready
-				time.Sleep(time.Second)
-				continue
-			}
-
-			checkHealthCheckStatus(resp)
-			break
-		}
-	} else {
-		resp, err := healthCheck()
-		if err != nil {
-			logger.Error("Health check failed: " + err.Error())
-			os.Exit(1)
-		}
-
-		checkHealthCheckStatus(resp)
-	}
+	//proxyUrl := os.Getenv("GO_CHATGPT_API_PROXY")
+	//if proxyUrl != "" {
+	//	logger.Info("GO_CHATGPT_API_PROXY: " + proxyUrl)
+	//	api.Client.SetProxy(proxyUrl)
+	//
+	//	for {
+	//		resp, err := healthCheck()
+	//		if err != nil {
+	//			// wait for proxy to be ready
+	//			time.Sleep(time.Second)
+	//			continue
+	//		}
+	//
+	//		checkHealthCheckStatus(resp)
+	//		break
+	//	}
+	//} else {
+	//	resp, err := healthCheck()
+	//	if err != nil {
+	//		logger.Error("Health check failed: " + err.Error())
+	//		os.Exit(1)
+	//	}
+	//
+	//	checkHealthCheckStatus(resp)
+	//}
 }
 
 func healthCheck() (resp *http.Response, err error) {
